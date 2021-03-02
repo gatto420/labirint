@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>LABIRINT</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="labirint">
+	<canvas id="maze" width="180px" height="180px"></canvas>
+</div>
+
+<script>
+        var c = document.getElementById("maze");
+var ctx = c.getContext("2d");
+ctx.lineWidth=2;
+ctx.strokeStyle="black";
+ctx.lineCap= "square";
+function labirint(){
+
+ctx.beginPath();
+
+
+
+ctx.moveTo(2,2);
+ctx.lineTo(66,2);
+ctx.moveTo(82,2);
+ctx.lineTo(162,2);
+ctx.moveTo(18,18);
+ctx.lineTo(82,18);
+ctx.moveTo(98,18);
+ctx.lineTo(114,18);
+ctx.moveTo(130,18);
+ctx.lineTo(146,18);
+ctx.moveTo(2,34);
+ctx.lineTo(18,34);
+ctx.moveTo(34,34);
+ctx.lineTo(50,34);
+ctx.moveTo(66,34);
+ctx.lineTo(82,34);
+ctx.moveTo(114,34);
+ctx.lineTo(130,34);
+ctx.moveTo(50,50);
+ctx.lineTo(114,50);
+ctx.moveTo(130,50);
+ctx.lineTo(146,50);
+ctx.moveTo(34,66);
+ctx.lineTo(82,66);
+ctx.moveTo(114,66);
+ctx.lineTo(130,66);
+ctx.moveTo(146,66);
+ctx.lineTo(162,66);
+ctx.moveTo(82,82);
+ctx.lineTo(114,82);
+ctx.moveTo(2,98);
+ctx.lineTo(18,98);
+ctx.moveTo(34,98);
+ctx.lineTo(66,98);
+ctx.moveTo(114,98);
+ctx.lineTo(130,98);
+ctx.moveTo(66,114);
+ctx.lineTo(114,114);
+ctx.moveTo(18,130);
+ctx.lineTo(34,130);
+ctx.moveTo(130,130);
+ctx.lineTo(146,130);
+ctx.moveTo(66,146);
+ctx.lineTo(114,146);
+ctx.moveTo(146,146);
+ctx.lineTo(162,146);
+ctx.moveTo(2,162);
+ctx.lineTo(82,162);
+ctx.moveTo(98,162);
+ctx.lineTo(162,162);
+ctx.moveTo(2,2);
+ctx.lineTo(2,162);
+ctx.moveTo(18,18);
+ctx.lineTo(18,34);
+ctx.moveTo(18,50);
+ctx.lineTo(18,98);
+ctx.moveTo(18,114);
+ctx.lineTo(18,146);
+ctx.moveTo(34,34);
+ctx.lineTo(34,130);
+ctx.moveTo(34,146);
+ctx.lineTo(34,162);
+ctx.moveTo(50,82);
+ctx.lineTo(50,98);
+ctx.moveTo(50,114);
+ctx.lineTo(50,162);
+ctx.moveTo(66,18);
+ctx.lineTo(66,34);
+ctx.moveTo(66,66);
+ctx.lineTo(66,82);
+ctx.moveTo(66,98);
+ctx.lineTo(66,146);
+ctx.moveTo(82,82);
+ctx.lineTo(82,98);
+ctx.moveTo(82,130);
+ctx.lineTo(82,146);
+ctx.moveTo(98,34);
+ctx.lineTo(98,50);
+ctx.moveTo(98,66);
+ctx.lineTo(98,82);
+ctx.moveTo(98,98);
+ctx.lineTo(98,130);
+ctx.moveTo(98,146);
+ctx.lineTo(98,162);
+ctx.moveTo(114,2);
+ctx.lineTo(114,66);
+ctx.moveTo(114,82);
+ctx.lineTo(114,98);
+ctx.moveTo(114,130);
+ctx.lineTo(114,146);
+ctx.moveTo(130,18);
+ctx.lineTo(130,34);
+ctx.moveTo(130,50);
+ctx.lineTo(130,82);
+ctx.moveTo(130,98);
+ctx.lineTo(130,162);
+ctx.moveTo(146,34);
+ctx.lineTo(146,50);
+ctx.moveTo(146,82);
+ctx.lineTo(146,130);
+ctx.moveTo(162,2);
+ctx.lineTo(162,162);
+
+
+
+
+
+ctx.stroke(); 
+ctx.closePath();
+}  
+
+labirint();           
+
+</script>
+<script>
+    var y = 2;
+    var x = 74;
+    var nar = 1;
+    var dx = 1;
+    var dy = 1;
+	var zvezda = new Image();
+	zvezda.src="zvezda.png";
+
+    function drawIt() {
+        ctx.fillStyle = "white";
+				if(nar==1){
+					labirint();
+					dx=4;
+					dy=4;
+					ctx.fillRect(x,y,2,2);
+					
+				}
+				
+					else if(nar==2){
+					var dx=1;
+					var dy=1;
+					
+					x1=x;
+					y1=y;
+				
+					x1=x;
+					y1=y;
+					ctx.clearRect(x-6,y-7,13,13);
+					ctx.drawImage(zvezda, x-5, y-5, 10, 10);   
+					labirint();
+				    }
+		
+        
+		if(x==74 && y>=2 && y<=10)
+		y+=dy;
+		if(y==10 && x>=74 && x<=90)
+		x+=dx;
+		if(x==90 && y>=10 && y<=42)
+		y+=dy;
+		if(y==42 && x>=58 && x<=90)
+		x-=dy;
+		if(x==58 && y>=26 && y<=42)
+		y-=dy;
+		if(y==26 && x>=26 && x<=58)
+		x-=dy;
+		if(x==26 && y>=26 && y<=106)
+		y+=dy;
+		if(y==106 && x>=10 && x<=26)
+		x-=dy;
+		if(x==10 && y>=106 && y<=154)
+		y+=dy;
+		if(y==154 && x>=10 && x<=26)
+		x+=dx;
+		if(x==26 && y>=138 && y<=154)
+		y-=dy;
+		if(y==138 && x>=26 && x<=42)
+		x+=dx;
+		if(x==42 && y>=106 && y<=138)
+		y-=dy;
+		if(y==106 && x>=42 && x<=58)
+		x+=dx;
+		if(x==58 && y>=106 && y<=154)
+		y+=dy;
+		if(y==154 && x>=58 && x<=90)
+		x+=dx;
+		if(x==90 && y>=154 && y<=162)
+		y+=dy;
+	
+		if(x==90&&y==162){
+			x=74;
+			y=2;
+		if(nar==1){
+		nar++;
+		}
+		else{
+		ctx.clearRect(x,y,4,4);    
+		nar++;
+			setTimeout(function(){
+			ctx.clearRect(100,200,1000,1000);    
+			y = 2;
+			x = 74;
+			nar = 1;
+			}, 3000);
+		}
+	}
+}	
+		setInterval(drawIt, 10);
+
+
+</script>
+</body>
+</html>
